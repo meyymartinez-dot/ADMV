@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Nuestra Historia 💖</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(#ffccd5, #fff0f5);
+    overflow-x: hidden;
+    text-align: center;
+}
+
+/* Corazones */
+.heart {
+    position: fixed;
+    top: -10px;
+    color: #ff4d88;
+    animation: fall linear infinite;
+    font-size: 20px;
+}
+@keyframes fall {
+    to { transform: translateY(110vh); }
+}
+
+.container {
+    padding: 30px;
+}
+
+h1 {
+    color: #cc0066;
+    font-size: 2.8em;
+}
+
+/* Contador */
+.counter {
+    font-size: 1.4em;
+    margin: 20px;
+    color: #444;
+}
+
+/* Tarjetas */
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    margin: 20px auto;
+    width: 85%;
+    max-width: 650px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: 0.3s;
+}
+.card:hover {
+    transform: scale(1.04);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Botones */
+button {
+    background: #ff4d88;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 1em;
+}
+
+button:hover {
+    background: #cc0066;
+}
+
+/* Timeline */
+.timeline {
+    margin-top: 20px;
+    font-size: 1em;
+    color: #555;
+}
+
+/* Imagen */
+img {
+    max-width: 90%;
+    border-radius: 15px;
+    margin-top: 15px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Tú eres el amor de mi vida 💖</h1>
+
+```
+<!-- CONTADOR -->
+<div class="counter" id="contador"></div>
+
+<!-- TIMELINE -->
+<div class="timeline">
+    ✨ 4 de septiembre 2025 — Nos conocimos<br>
+    💞 6 de febrero — Nos hicimos novios<br>
+    💖 31 de marzo — Amor de nuestras vidas
+</div>
+
+<!-- BOTÓN MÚSICA -->
+<button onclick="toggleMusica()">🎶 Reproducir nuestra canción</button>
+
+<!-- AUDIO -->
+<audio id="musica" loop>
+    <source src="TU_CANCION.mp3" type="audio/mpeg">
+</audio>
+
+<!-- CARTA -->
+<div class="card" onclick="toggle('carta')">
+    💌 Léeme con el corazón
+    <div id="carta" class="hidden">
+        <p>
+        Amor,  
+
+        ese momento en el que me dijiste que soy el amor de tu vida  
+        se quedó grabado en mí para siempre.  
+
+        Y aunque mis palabras temblaron,  
+        lo que siento por ti nunca lo ha hecho.  
+
+        Eres el amor de mi vida.  
+        Sin dudas. Sin miedo. Sin pausas.  
+
+        Nunca había sentido algo así,  
+        nunca me había sentido tan feliz, tan tranquila, tan en casa.  
+
+        Gracias por tu forma de amar,  
+        por tu generosidad,  
+        por ese corazón tan inmenso que tienes.  
+
+        No quiero que jamás dudes de esto:  
+        eres tú… siempre tú. 💖
+        </p>
+    </div>
+</div>
+
+<!-- POEMA -->
+<div class="card" onclick="toggle('poema')">
+    🌸 Un pedacito de lo que siento
+    <div id="poema" class="hidden">
+        <p>
+        Te encontré sin buscarte,  
+        pero ahora no sabría perderte.  
+
+        Eres lo que calma,  
+        lo que enciende,  
+        lo que queda.  
+
+        Y si el mundo se apagara,  
+        bastaría tu mirada  
+        para volver a empezar.  
+
+        Porque no es solo amor,  
+        es certeza:  
+        eres el amor de mi vida. 💫
+        </p>
+    </div>
+</div>
+
+<!-- FOTO -->
+<div class="card" onclick="toggle('foto')">
+    📸 Nosotros
+    <div id="foto" class="hidden">
+        <img src="TU_FOTO_AQUI.jpg">
+    </div>
+</div>
+
+<!-- BOTONES INTERACTIVOS -->
+<div class="card">
+    💖 Juguemos un poquito
+    <br>
+    <button onclick="mensaje1()">¿Me amas?</button>
+    <button onclick="mensaje2()">Haz clic si soy tu persona</button>
+    <button onclick="mensaje3()">No presiones este botón 👀</button>
+    <p id="respuesta"></p>
+</div>
+```
+
+</div>
+
+<script>
+// CONTADOR DESDE QUE SE CONOCIERON
+function actualizarContador() {
+    const inicio = new Date("2025-09-04");
+    const ahora = new Date();
+
+    const diff = ahora - inicio;
+
+    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((diff / (1000 * 60)) % 60);
+
+    document.getElementById("contador").innerHTML =
+        "Llevamos " + dias + " días, " + horas + " horas y " + minutos + " minutos desde que empezó todo ✨";
+}
+
+setInterval(actualizarContador, 1000);
+
+// TOGGLE
+function toggle(id) {
+    document.getElementById(id).classList.toggle("hidden");
+}
+
+// MÚSICA
+let reproduciendo = false;
+function toggleMusica() {
+    const audio = document.getElementById("musica");
+    if (!reproduciendo) {
+        audio.play();
+        reproduciendo = true;
+    } else {
+        audio.pause();
+        reproduciendo = false;
+    }
+}
+
+// BOTONES
+function mensaje1() {
+    document.getElementById("respuesta").innerHTML = "Yo te amo más 💖";
+}
+function mensaje2() {
+    document.getElementById("respuesta").innerHTML = "Siempre lo he sido… y siempre lo seré 💫";
+}
+function mensaje3() {
+    document.getElementById("respuesta").innerHTML = "Sabía que ibas a presionarlo 😏 pero te amo igual 💕";
+}
+
+// CORAZONES
+function crearCorazones() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+
+setInterval(crearCorazones, 300);
+</script>
+
+</body>
+</html>
