@@ -217,7 +217,7 @@ function mensaje2() {
     document.getElementById("respuesta").innerHTML = "Siempre lo he sido… y siempre lo seré 💫";
 }
 function mensaje3() {
-    document.getElementById("respuesta").innerHTML = "Sabía que ibas a presionarlo 😏 pero te amo igual 💕";
+    document.getElementById("respuesta").innerHTML = "Sabía que ibas a presionarlo, pero te amo igual 💕";
 }
 
 // CORAZONES
