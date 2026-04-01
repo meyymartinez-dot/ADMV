@@ -14,7 +14,6 @@ body {
     text-align: center;
 }
 
-/* Corazones */
 .heart {
     position: fixed;
     top: -10px;
@@ -35,14 +34,12 @@ h1 {
     font-size: 2.8em;
 }
 
-/* Contador */
 .counter {
     font-size: 1.4em;
     margin: 20px;
     color: #444;
 }
 
-/* Tarjetas */
 .card {
     background: white;
     padding: 25px;
@@ -62,30 +59,26 @@ h1 {
     display: none;
 }
 
-/* Botones */
 button {
     background: #ff4d88;
     color: white;
     border: none;
-    padding: 12px 20px;
-    border-radius: 12px;
+    padding: 12px 22px;
+    border-radius: 15px;
     cursor: pointer;
-    margin: 10px;
+    margin-top: 15px;
     font-size: 1em;
 }
-
 button:hover {
     background: #cc0066;
 }
 
-/* Timeline */
 .timeline {
     margin-top: 20px;
     font-size: 1em;
     color: #555;
 }
 
-/* Imagen */
 img {
     max-width: 90%;
     border-radius: 15px;
@@ -101,23 +94,20 @@ img {
     <h1>Tú eres el amor de mi vida 💖</h1>
 
 ```
-<!-- CONTADOR -->
 <div class="counter" id="contador"></div>
 
-<!-- TIMELINE -->
 <div class="timeline">
     ✨ 4 de septiembre 2025 — Nos conocimos<br>
     💞 6 de febrero — Nos hicimos novios<br>
     💖 31 de marzo — Amor de nuestras vidas
 </div>
 
-<!-- BOTÓN MÚSICA -->
-<button onclick="toggleMusica()">🎶 Reproducir nuestra canción</button>
-
-<!-- AUDIO -->
-<audio id="musica" loop>
-    <source src="TU_CANCION.mp3" type="audio/mpeg">
-</audio>
+<!-- BOTÓN CANCIÓN -->
+<div class="card">
+    🎶 Nuestra canción
+    <br>
+    <button onclick="abrirCancion()">💖 Escucha esto pensando en nosotros</button>
+</div>
 
 <!-- CARTA -->
 <div class="card" onclick="toggle('carta')">
@@ -125,7 +115,6 @@ img {
     <div id="carta" class="hidden">
         <p>
         Amor,  
-
         ese momento en el que me dijiste que soy el amor de tu vida  
         se quedó grabado en mí para siempre.  
 
@@ -175,11 +164,11 @@ img {
 <div class="card" onclick="toggle('foto')">
     📸 Nosotros
     <div id="foto" class="hidden">
-        <img src="TU_FOTO_AQUI.jpg">
+        <img src="foto.jpg">
     </div>
 </div>
 
-<!-- BOTONES INTERACTIVOS -->
+<!-- BOTONES -->
 <div class="card">
     💖 Juguemos un poquito
     <br>
@@ -193,7 +182,7 @@ img {
 </div>
 
 <script>
-// CONTADOR DESDE QUE SE CONOCIERON
+// CONTADOR
 function actualizarContador() {
     const inicio = new Date("2025-09-04");
     const ahora = new Date();
@@ -215,17 +204,9 @@ function toggle(id) {
     document.getElementById(id).classList.toggle("hidden");
 }
 
-// MÚSICA
-let reproduciendo = false;
-function toggleMusica() {
-    const audio = document.getElementById("musica");
-    if (!reproduciendo) {
-        audio.play();
-        reproduciendo = true;
-    } else {
-        audio.pause();
-        reproduciendo = false;
-    }
+// CANCIÓN (ABRE YOUTUBE)
+function abrirCancion() {
+    window.open("https://youtu.be/CdvmOnruSAo?si=I6CwR5dmbNMt03Fe", "_blank");
 }
 
 // BOTONES
